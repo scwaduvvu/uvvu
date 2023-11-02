@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>uvvu</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-light fs-3" href="/">Meme Image Bank</a>
+          <div class="collapse navbar-collapse pt-2">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/profile/<%= login %>">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/upload">Upload</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/posters">Buy posters</a>
+              </li>
+            </ul>
+            <a href="/random" class="me-2">
+              <img src="/icons/shuffle.svg"/>
+            </a>
+            <form class="d-flex" action="/search", method="get">
+              <div class="input-group me-2">
+                <input type="text" name="q" placeholder="Search" class="form-control"/>
+                <button type="submit" class="btn btn-light">
+                  <img src="/icons/search.svg"/>
+                </button>
+              </div>
+            </form>
+            <form action="/logout" method="post">
+              <button type="submit" class="btn btn-outline-danger">Logout</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="mt-5 pt-4">
+      <div class="container-fluid mt-3">
+        <div class="text-center">
+            <div class="lead text-center mb-3">
+                To become premium member, you need to answer the following three simple questions.
+                This form can only be sent once, so don't make mistakes !
+            </div>
+			<div class="w-100 m-auto" style="max-width: 400px;">
+				<form action="/premium" method="post">
+                    <p class="mb-1">What is your name ?</p>
+                    <input type="text" name="q1" class="form-control mb-3">
+                    <p class="mb-1">What is your quest ?</p>
+                    <input type="text" name="q2" class="form-control mb-3">
+                    <p class="mb-1">What is the airspeed velocity of an unladen swallow ?</p>
+                    <input type="text" name="q3" class="form-control mb-2">
+                    <button type="submit" class="btn btn-primary mb-1">Answer</button>
+				</form>
+			</div>
+		</div>
+      </div>
+    </main>
+  </body>
+</html>

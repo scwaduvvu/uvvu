@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>uvvu</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-light fs-3" href="/">Meme Image Bank</a>
+          <div class="collapse navbar-collapse pt-2">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/profile/<%= user.login %>">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/upload">Upload</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/posters">Buy posters</a>
+              </li>
+            </ul>
+            <a href="/random" class="me-2">
+              <img src="/icons/shuffle.svg"/>
+            </a>
+            <form class="d-flex" action="/search", method="get">
+              <div class="input-group me-2">
+                <input type="text" name="q" placeholder="Search" class="form-control"/>
+                <button type="submit" class="btn btn-light">
+                  <img src="/icons/search.svg"/>
+                </button>
+              </div>
+            </form>
+            <form action="/logout" method="post">
+              <button type="submit" class="btn btn-outline-danger">Logout</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="mt-5 pt-4">
+      <div class="container-fluid mt-3">
+        <div class="row">
+          <div class="col-4 pe-3">
+            <h1 class="h2">Upload new image :</h1>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+              <input class="form-control mb-1" name="title" placeholder="Title" pattern="^[A-z\-_]+$" maxlength="40" />
+              <input class="form-check-input mb-1" type="checkbox" name="premium" id="prem-chkbx" />
+              <% if (user.premium) { %>
+                <label class="form-check-label" for="prem-chkbx">Premium image !</label>
+              <% } %>
+              <input class="form-control mb-1" name="file" type="file" accept=".jpg" />
+              <button class="btn btn-primary" type="submit">Upload</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

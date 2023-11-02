@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>uvvu</title>
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="text-end">
+			<a href="/login" class="mt-3 me-3">Sign in</a>
+		</div>
+		<div class="text-center">
+			<div class="w-100 m-auto" style="max-width: 400px;">
+				<h1 class="h3 fw-normal mb-3">Newcomer, youhouuu !</h1>
+				<% if (locals.already_reg) { %>
+				<div class="p-3 mb-2">
+					<div class="d-inline alert alert-danger">This user already registered.</div>
+				</div>
+				<% } %>
+				<% if (locals.bad_login) { %>
+					<div class="p-3 mb-2">
+						<div class="d-inline alert alert-danger">Your login must only contain letters.</div>
+					</div>
+					<% } %>
+				<form action="/sign-up" method="post">
+					<div class="form-floating">
+						<input id="femail" type="email" name="email" placeholder="Email" class="form-control mb-1">
+						<label for="femail">Email</label>
+					</div>
+					<div class="form-floating">
+						<input id="flogin" type="text" name="login" placeholder="Login" class="form-control mb-1">
+						<label for="flogin">Login</label>
+					</div>
+					<div class="form-floating">
+						<input id="fpwd" type="password" name="password" placeholder="Password" class="form-control mb-1">
+						<label for="fpwd">Password</label>
+					</div>
+					<div class="form-floating">
+						<input id="fpwdconf" type="password" name="password_conf" placeholder="Password confirmation" class="form-control mb-1">
+						<label for="fpwdconf">Password confirmation</label>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary mb-1">Sign up</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

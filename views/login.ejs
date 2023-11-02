@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>uvvu</title>
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="text-end">
+			<a href="/sign-up" class="mt-3 me-3">Sign up</a>
+		</div>
+		<div class="text-center">
+			<div class="w-100 m-auto" style="max-width: 400px;">
+				<h1 class="h3 fw-normal mb-3">Welcome !<br/>Please, sign in:</h1>
+				<% if (locals.wrong_creds) { %>
+				<div class="p-3 mb-2">
+					<div class="d-inline alert alert-danger">Wrong credentials</div>
+				</div>
+				<% } %>
+				<form action="/login" method="post">
+					<div class="form-floating">
+						<input id="flogin" type="text" name="login" placeholder="Login" class="form-control mb-1">
+						<label for="flogin">Login</label>
+					</div>
+					<div class="form-floating">
+						<input id="fpwd" type="password" name="password" placeholder="Password" class="form-control mb-1">
+						<label for="fpwd">Password</label>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary mb-1">Submit</button>
+					</div>
+				</form>
+				<a href="/forgot-pwd">Forgot my password</a>
+			</div>
+		</div>
+	</body>
+</html>
